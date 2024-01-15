@@ -3,31 +3,30 @@
 #include <string>
 #include <bitset>
 #include <conio.h>
-#include<algorithm>
+#include <algorithm>
 #include <ctime>
 using namespace std;
-
-// 选择排序
-int SelectSort(int *arr, int n)
+// 希尔排序
+int ShellSort(int *arr, int n)
 {
-    int min;
-    for (int i = 0; i < n; i++)
+    int i, j, gap, temp;
+    // 初始增量 n/2
+    for (gap = n / 2; gap > 0; gap /= 2)
     {
-        min = i;
-        for (int j = i + 1; j < n; j++)
+        // 每一趟采用插入排序
+        for (i = gap; i < n; i++)
         {
-            if (arr[j] < arr[min])
+            temp = arr[i];
+            for (j = i; j >= gap && temp < arr[j - gap]; j -= gap)
             {
-                min = j;
+                arr[j] = arr[j - gap];
             }
-            if(min!=i){
-                swap(arr[i], arr[min]);
-
-            }
+            arr[j] = temp;
         }
     }
     return 0;
 }
+
 int main(int argc, char *argv[])
 {
     int n;
@@ -46,7 +45,7 @@ int main(int argc, char *argv[])
         cout << arr[i] << " ";
     }
     cout << endl;
-    SelectSort(arr, n);
+    ShellSort(arr, n);
     cout << "排序后：";
     for (int i = 0; i < n; i++)
     {
