@@ -10,6 +10,8 @@ using namespace std;
 @(multiset):允许有相同元素
 */
 
+//@@有关对组内容见C++_STL\pair\pair.cpp
+
 void set_t1()
 {
     set<int> s1({1, 2, 4, 5, 6, 7, 8, 9, 10}); // 创建一个set对象，初始化元素
@@ -41,6 +43,11 @@ void multiset_t1()
              { cout << i << " "; }); // 遍历multiset对象，输出每个元素
     cout << endl;
 }
+
+/*
+有关使用仿函数改变set排序规则的方法，以后补充...
+*/
+
 int main(int argc, char *argv[])
 {
     //set_t1();
