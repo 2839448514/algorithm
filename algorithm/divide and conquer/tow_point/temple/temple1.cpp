@@ -6,9 +6,9 @@
 #include <vector>
 using namespace std;
 
-// 尺取法例1(反向扫描)
+// 尺取法 例1(反向扫描)
 /*
-问题1.输入n(n<=100000)个整数，放在数组a[]中。找出其中的两个数，它们之和等于整数m，所有整数都是int型。
+问题1.(找指定和的整数对)输入n(n<=100000)个整数，放在数组a[]中。找出其中的两个数，它们之和等于整数m，所有整数都是int型。
 */
 /*
 解答：(1)用二重循环暴力破解，枚举所有取数方法，复杂度为O(n^2)。超时，暴力法不需要排序。
@@ -17,10 +17,11 @@ using namespace std;
 (4)尺取法。先对数组从小到大排序。然后设置两个变量i，j，分别指向头和尾，i初值为0，j初值为n-1。然后i和j逐渐向中间移动，检查a[i]+a[j],如果大于m，j--，如果小于m，i++，如果等于m，则输出a[i]和a[j]，并退出循环。检查的复杂度为O(n)。总复杂度为O(nlog₂n)。
 */
 
-vector<int>* random_array(int n)
+//(4)尺取法
+vector<int> *random_array(int n)
 {
     srand(time(0));
-    vector<int> *v=new vector<int>;
+    vector<int> *v = new vector<int>;
     for (int i = 0; i < n; i++)
     {
         (*v).push_back(rand() % 1000);
@@ -28,28 +29,34 @@ vector<int>* random_array(int n)
     return v;
 }
 
-void find_num(vector<int> *a, int m){
+void find_num(vector<int> *a, int m)
+{
     sort(a->begin(), a->end());
-    vector<int>::iterator i=(*a).begin(),j=(*a).end()-1;
-    while(i<j){
-        int sum=(*i)+(*j);
-        if(sum>m){
+    vector<int>::iterator i = (*a).begin(), j = (*a).end() - 1;
+    while (i < j)
+    {
+        int sum = (*i) + (*j);
+        if (sum > m)
+        {
             j--;
         }
-        if(sum<m){
+        if (sum < m)
+        {
             i++;
         }
-        if(sum==m){
-            cout<<*i<<" "<<*j<<endl;
+        if (sum == m)
+        {
+            cout << *i << " " << *j << endl;
             break;
         }
     }
 }
+
 int main(int argc, char *argv[])
 {
-     int n=100;
-    int m=100;
-    vector<int> *a=random_array(n);
-    find_num(a,m);
+    int n = 100;
+    int m = 100;
+    vector<int> *a = random_array(n);
+    find_num(a, m); // 尺取法
     return 0;
 }

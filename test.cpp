@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <vector>
 #include <algorithm>
 using namespace std;
 int main(int argc, char *argv[])
 {
-    vector<int> v1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    cout << *(v1.end()-1) << endl;
+    int a[10] = {4, 5, 7, 2, 1, 3, 5, 4, 7, 4};
+    sort(a, a + 10);
+    for_each(a, a + 10, [](int i) { cout << i << " "; });
     return 0;
 }

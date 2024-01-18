@@ -13,7 +13,7 @@ map容器(映射)  元素自动排序
 void t1()
 {
     map<int, string> m1;
-    m1 = {{1, "one"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"}, {10, "ten"}};
+    m1 = {{22, "22"}, {2, "two"}, {3, "three"}, {4, "four"}, {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"}, {10, "ten"}};
     for (map<int, string>::iterator p1 = m1.begin(); p1 != m1.end(); p1++)
     {
         cout << p1->first << " " << p1->second << " ";
