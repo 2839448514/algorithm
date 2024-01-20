@@ -16,9 +16,9 @@ int a[N], dp_max[N][22], dp_min[N][21];
 int LOG2[N]; // 自己计算以2为底的对数，向下取整
 void st_init()
 {
-    LOG2[0] = -1;
-    for (int i = 1; i <= N; i++)
-        LOG2[i] = LOG2[i >> 1] + 1; // 不用系统log()函数，自己算
+    // LOG2[0] = -1;
+    // for (int i = 1; i <= N; i++)
+    //     LOG2[i] = LOG2[i >> 1] + 1; // 不用系统log()函数，自己算
     for (int i = 1; i <= n; i++)
     { // 初始化区间长度为1时的值
         dp_min[i][0] = a[i];
