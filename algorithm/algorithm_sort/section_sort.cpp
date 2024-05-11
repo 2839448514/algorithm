@@ -22,7 +22,6 @@ int SelectSort(int *arr, int n)
             }
             if(min!=i){
                 swap(arr[i], arr[min]);
-
             }
         }
     }

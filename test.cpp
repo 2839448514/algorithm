@@ -1,11 +1,44 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <vector>
 #include <algorithm>
 using namespace std;
+
+// void dfs(vector<int> &v, int p, int q)
+// {
+//     if (p == q)
+//     {
+//         for_each(v.begin(), v.end(), [](int v1)
+//                  { cout << v1 << " "; });
+//         cout << endl;
+//     }
+//     else
+//     {
+//         for (int i = p; i <= q; i++)
+//         {
+//             swap(v[p], v[i]);
+//             dfs(v, p + 1, q);
+//             swap(v[p], v[i]);
+//         }
+//     }
+// }
+
+class A{
+    public:
+    int a=1;
+    void print(){
+        cout<<a<<endl;
+    }
+};
+class A1:public A{
+    public:
+      void print(){
+        cout<<"123"<<endl;
+    }
+};
+
 int main(int argc, char *argv[])
 {
-    int a[10] = {4, 5, 7, 2, 1, 3, 5, 4, 7, 4};
-    sort(a, a + 10);
-    for_each(a, a + 10, [](int i) { cout << i << " "; });
-    return 0;
+    A1 w;
+    w.print();
 }
